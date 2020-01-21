@@ -30,10 +30,11 @@ public class Root implements Node
         TreeSet<String> tempLinks = new TreeSet<>();
         for (Element link : links)
         {
-            if (!(this.links.contains(link.absUrl("href").split("#", 2)[0])))
+            String url = link.absUrl("href");
+            if (!(this.links.contains(url.split("#", 2)[0])))
             {
-                this.links.add(link.absUrl("href"));
-                tempLinks.add(link.absUrl("href"));
+                this.links.add(url);
+                tempLinks.add(url);
             }
         }
         if (links.size() == 0) return null;
